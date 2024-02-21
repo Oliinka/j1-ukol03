@@ -1,7 +1,8 @@
+//RamMemory
 package cz.czechitas.ukol3;
 
 public class RamMemory {
-    private long capacity = 8L;
+    private long capacity;
 
     public long getCapacity() {
         return capacity;

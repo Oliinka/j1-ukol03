@@ -1,3 +1,4 @@
+//HardDisc
 package cz.czechitas.ukol3;
 
 public class HardDisc {
@@ -8,7 +9,7 @@ public class HardDisc {
     }
 
     public long getCapacity() {
-        return capacity;
+        return capacity = 910L;
     }
 
     public void setCapacity(long capacity) {
