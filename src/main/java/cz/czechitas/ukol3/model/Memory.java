@@ -1,7 +1,6 @@
-//RamMemory
-package cz.czechitas.ukol3;
+package cz.czechitas.ukol3.model;
 
-public class RamMemory {
+public class Memory {
     private long capacity;
 
     public long getCapacity() {
@@ -12,9 +11,8 @@ public class RamMemory {
         this.capacity = capacity;
     }
 
+    @Override
     public String toString() {
-        return "Installed RAM: " + capacity + " GB" + "\n"+
-                "Usable RAM: " + (capacity - 0.1) + "GB";
+        return "Installed RAM: " + getCapacity() + " bytes";
     }
 }
-
