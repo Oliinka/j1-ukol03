@@ -84,7 +84,7 @@ public class Computer {
         if (!computerOn) {
             System.err.println("Computer is off, impossible to delete file.");
         }
-        if ((sizeOfFile < freeSpaceOnDisc) && (0 < sizeOfFile)) {
+        else if ((sizeOfFile < freeSpaceOnDisc) && (0 < sizeOfFile)) {
             hardDisc.setCapacity(hardDisc.getCapacity() - sizeOfFile);
             hardDisc.setUsedSpace(hardDisc.getUsedSpace() + sizeOfFile);
             System.out.println("File of the size " + sizeOfFile + " bytes was saved on disc.\n" + "Capacity left to use " + hardDisc.getCapacity() + " bytes.");
@@ -98,7 +98,7 @@ public class Computer {
         if (!computerOn) {
             System.err.println("Computer is off, impossible to delete file.");
         }
-        if (hardDisc != null && hardDisc.getUsedSpace() - sizeOfFile >= 0) {
+        else if (hardDisc != null && hardDisc.getUsedSpace() - sizeOfFile >= 0) {
             hardDisc.setUsedSpace(hardDisc.getUsedSpace() - sizeOfFile);
             System.out.println("File of the size " + sizeOfFile + " bytes has been deleted from the hard disc.\n" + "Capacity left to use  " + hardDisc.getCapacity() + " bytes.");
         } else {
