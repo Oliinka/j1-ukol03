@@ -17,13 +17,6 @@ public class Disc {
     }
 
     public void setUsedSpace(long usedSpace) {
-        if (usedSpace > capacity) {
-            System.err.println("Disc has run out of the capacity.");
-            return;
-        } else if (usedSpace < 0) {
-            System.err.println("Impossible to delete file.\n Size of the file is greater then used space of the hard disc.");
-            return;
-        }
         this.usedSpace = usedSpace;
     }
 

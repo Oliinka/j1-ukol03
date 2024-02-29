@@ -15,7 +15,7 @@ public class MainProgramm {
         System.out.println("Programm running.");
 
         Computer myComputer = new Computer();
-        System.out.println("computerOn() value: " + myComputer.ComputerOn());
+        System.out.println("computerOn() value: " + myComputer.isComputerOn());
 
         System.out.println("------------------------------------------------------");
         myComputer.turnOn();
@@ -71,6 +71,9 @@ public class MainProgramm {
         System.out.println("------------------------------------------------------");
         myComputer.turnOff();
         myComputer.turnOff();
+
+        myComputer.createFile(100);
+        myComputer.deleteFile(100);
     }
 
 }

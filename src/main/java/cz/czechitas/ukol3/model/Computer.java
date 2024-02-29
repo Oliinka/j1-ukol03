@@ -8,7 +8,7 @@ public class Computer {
     private Processor cpu = null;
     private Memory ram = null;
 
-    public boolean ComputerOn() {
+    public boolean isComputerOn() {
         return computerOn;
     }
 
@@ -34,14 +34,6 @@ public class Computer {
 
     public void setRam(Memory ram) {
         this.ram = ram;
-    }
-
-    public void isComputerOn() {
-        if (computerOn) {
-            System.out.println("Computer is on.");
-        } else {
-            System.err.println("Computer is off...");
-        }
     }
 
     public void turnOff() {
@@ -89,6 +81,9 @@ public class Computer {
 
     public void createFile(long sizeOfFile) {
         long freeSpaceOnDisc = hardDisc.getCapacity() - hardDisc.getUsedSpace();
+        if (!computerOn) {
+            System.err.println("Computer is off, impossible to delete file.");
+        }
         if ((sizeOfFile < freeSpaceOnDisc) && (0 < sizeOfFile)) {
             hardDisc.setCapacity(hardDisc.getCapacity() - sizeOfFile);
             hardDisc.setUsedSpace(hardDisc.getUsedSpace() + sizeOfFile);
@@ -100,43 +95,42 @@ public class Computer {
 
 
     public void deleteFile(long sizeOfFile) {
-        if (computerOn) {
-            if (hardDisc != null && hardDisc.getUsedSpace() - sizeOfFile >= 0) {
-                hardDisc.setUsedSpace(hardDisc.getUsedSpace() - sizeOfFile);
-                System.out.println("File of the size " + sizeOfFile + " bytes has been deleted from the hard disc.\n" + "Capacity left to use  " + hardDisc.getCapacity() + " bytes.");
-            } else {
-                hardDisc.setUsedSpace(hardDisc.getUsedSpace() - sizeOfFile);
-                System.out.println("File of the size " + sizeOfFile + " is greater then used space of the hard disc.\nCapacity left to use  " + hardDisc.getUsedSpace() + " bytes.");
-            }
-        } else {
+        if (!computerOn) {
             System.err.println("Computer is off, impossible to delete file.");
         }
+        if (hardDisc != null && hardDisc.getUsedSpace() - sizeOfFile >= 0) {
+            hardDisc.setUsedSpace(hardDisc.getUsedSpace() - sizeOfFile);
+            System.out.println("File of the size " + sizeOfFile + " bytes has been deleted from the hard disc.\n" + "Capacity left to use  " + hardDisc.getCapacity() + " bytes.");
+        } else {
+            hardDisc.setUsedSpace(hardDisc.getUsedSpace() - sizeOfFile);
+            System.out.println("File of the size " + sizeOfFile + " is greater then used space of the hard disc.\nCapacity left to use  " + hardDisc.getUsedSpace() + " bytes.");
+        }
+}
+
+
+@Override
+public String toString() {
+    String result = "Computer informations:\n";
+
+    if (cpu != null) {
+        result += "Processor:\n" + cpu.toString() + "\n";
+    } else {
+        result += "Processor is not set up.\n";
     }
 
-
-    @Override
-    public String toString() {
-        String result = "Computer informations:\n";
-
-        if (cpu != null) {
-            result += "Processor:\n" + cpu.toString() + "\n";
-        } else {
-            result += "Processor is not set up.\n";
-        }
-
-        if (ram != null) {
-            result += "RAM:\n" + ram.toString() + "\n";
-        } else {
-            result += "RAM is not set up.\n";
-        }
-
-        if (hardDisc != null) {
-            result += "Hard disc:\n" + hardDisc.toString();
-        } else {
-            result += "Hard disc is not set up.";
-        }
-
-        return result;
+    if (ram != null) {
+        result += "RAM:\n" + ram.toString() + "\n";
+    } else {
+        result += "RAM is not set up.\n";
     }
+
+    if (hardDisc != null) {
+        result += "Hard disc:\n" + hardDisc.toString();
+    } else {
+        result += "Hard disc is not set up.";
+    }
+
+    return result;
+}
 
 }
