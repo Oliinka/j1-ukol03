@@ -26,4 +26,5 @@ public class Processor {
                 "Speed of the processor: " + speed + " Hz";
     }
 
+
 }
