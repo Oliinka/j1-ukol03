@@ -25,6 +25,4 @@ public class Processor {
         return "Brand of the processor: " + brand + "\n" +
                 "Speed of the processor: " + speed + " Hz";
     }
-
-
 }
