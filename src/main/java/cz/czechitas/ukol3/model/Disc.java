@@ -17,7 +17,14 @@ public class Disc {
     }
 
     public void setUsedSpace(long usedSpace) {
-        this.usedSpace = usedSpace;
+        if (usedSpace < 0) {
+            System.err.println("Used space on the disk cannot be negative.");
+        } else if (usedSpace > capacity) {
+            System.err.println("File unsaved. Hard disk capacity has been exceeded.\nCapacity left to use "
+                    + (capacity - getUsedSpace()) + " bytes.");
+        } else {
+            this.usedSpace = usedSpace;
+        }
     }
 
     @Override
