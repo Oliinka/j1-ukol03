@@ -24,9 +24,14 @@ public class MainProgramm {
 
         System.out.println(myComputer.toString());
 
-        Disc mujDisk = new Disc();
-        mujDisk.setCapacity(994_662_584_320L);
-        myComputer.setHardDisc(mujDisk);
+        Disc myDisk = new Disc();
+        //myDisk.setCapacity(994_662_584_320L);
+        myDisk.setCapacity(1000L);
+        myComputer.setHardDisc(myDisk);
+
+        Disc mySecondDisc = new Disc();
+        mySecondDisc.setCapacity(1000L);
+        myComputer.setSecondHardDisc(mySecondDisc);
 
         Memory myMemory = new Memory();
         myMemory.setCapacity(24_000_000_000L);
@@ -47,29 +52,38 @@ public class MainProgramm {
         myComputer.turnOn();
         System.out.println("------------------------------------------------------");
 
-        myComputer.createFile(662_584_000L);
+        myComputer.createFile(200L);
 
-        System.out.println("CONTROL --> Currently used space: " + mujDisk.getUsedSpace() + "bytes.");
+        System.out.println("CONTROL --> Currently used space: " + "\ndisk 01: " + myDisk.getUsedSpace() + "\ndisk 02: "+ mySecondDisc.getUsedSpace() + " bytes.");
+
+        System.out.println("------------------------------------------------------");
+
+        myComputer.createFile(1000L);
+        System.out.println("CONTROL --> Currently used space: " + "\ndisk 01: " + myDisk.getUsedSpace() + "\ndisk 02: "+ mySecondDisc.getUsedSpace() + " bytes.");
 
         System.out.println("------------------------------------------------------");
 
-        myComputer.createFile(4_000_000_000L);
-        System.out.println("CONTROL --> Currently used space: " + mujDisk.getUsedSpace() + "bytes.");
+        myComputer.createFile(800L);
+        System.out.println("CONTROL --> Currently used space: " + "\ndisk 01: " + myDisk.getUsedSpace() + "\ndisk 02: "+ mySecondDisc.getUsedSpace() + " bytes.");
+        System.out.println("------------------------------------------------------");
+
+        myComputer.createFile(800L);
+        System.out.println("CONTROL --> Currently used space: " + "\ndisk 01: " + myDisk.getUsedSpace() + "\ndisk 02: "+ mySecondDisc.getUsedSpace() + " bytes.");
+        System.out.println("------------------------------------------------------");
 
         System.out.println("------------------------------------------------------");
-        myComputer.createFile(994_000_000_000L);
-
-        System.out.println("CONTROL --> Currently used space: " + mujDisk.getUsedSpace() + "bytes.");
-
+        myComputer.deleteFile(200L);
+        System.out.println("CONTROL --> Currently used space: " + "\ndisk 01: " + myDisk.getUsedSpace() + "\ndisk 02: "+ mySecondDisc.getUsedSpace() + " bytes.");
         System.out.println("------------------------------------------------------");
-        myComputer.deleteFile(4_000_000_000L);
-
-        System.out.println("CONTROL --> Currently used space: " + mujDisk.getUsedSpace() + "bytes.");
+        myComputer.deleteFile(1000L);
+        System.out.println("CONTROL --> Currently used space: " + "\ndisk 01: " + myDisk.getUsedSpace() + "\ndisk 02: "+ mySecondDisc.getUsedSpace() + " bytes.");
         System.out.println("------------------------------------------------------");
-        myComputer.deleteFile(1_994_000_000_000L);
-        System.out.println("CONTROL --> Currently used space: " + mujDisk.getUsedSpace() + "bytes.");
+        myComputer.deleteFile(800L);
+        System.out.println("CONTROL --> Currently used space: " + "\ndisk 01: " + myDisk.getUsedSpace() + "\ndisk 02: "+ mySecondDisc.getUsedSpace() + " bytes.");
         System.out.println("------------------------------------------------------");
-        myComputer.turnOff();
+        myComputer.deleteFile(1_000L);
+        System.out.println("CONTROL --> Currently used space: " + "\ndisk 01: " + myDisk.getUsedSpace() + "\ndisk 02: "+ mySecondDisc.getUsedSpace() + " bytes.");
+        System.out.println("------------------------------------------------------");
         myComputer.turnOff();
 
         myComputer.createFile(100);
